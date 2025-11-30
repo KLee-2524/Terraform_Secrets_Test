@@ -40,18 +40,14 @@ variable "target_ami" {
     # Ubuntu 22.04 = "ami-043b59f1d11f8f189"
 }
 
-variable "target_setup_script" {
-    description = "Set script to configure Target VM upon deployment"
+variable "TEST_VAR" {
+    description = "Test variable"
     type        = string
-    default     = <<-EOT
-    #!/bin/bash
-    export DEBIAN_FRONTEND=noninteractive
-
-    mkdir /home/ubuntu/FAST
-    echo "FAST directory created!" > /home/ubuntu/FAST/setup_log.txt
-    EOT
-
 }
 
-
+variable "PRIVATE_KEY" {
+    description = "SSH Key for remote exection"
+    type        = string
+    sensitive   = true
+}
 

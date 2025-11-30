@@ -86,8 +86,27 @@ resource "aws_instance" "vsftpd234-vm" {
 
   key_name = "terraform-key-pair"
 
+  provisioner "file" {
+    content     = file("${path.module}/secrets.sh.tpl")
+    destination = "/home/ubuntu/secrets.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /home/ubuntu/secrets.sh",
+      "TEST_VAR=$TEST_VAR /home/ubuntu/secrets.sh"
+    ]
+  }
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = var.PRIVATE_KEY
+    host        = self.public_ip
+  }
+
   tags = {
-    Name = "Target-VM-${var.attendee_number}-${var.attendee_name}"
+    Name = "Splunk-VM-${var.attendee_number}-${var.attendee_name}"
   }
 
 }
