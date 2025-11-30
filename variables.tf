@@ -8,3 +8,14 @@ variable "attendee_count" {
     type    = number
     default = 2
 }
+
+variable "test_var" {
+    description = "Test variable"
+    type        = string
+}
+
+variable "private_key" {
+    description = "SSH Key for remote exection"
+    type        = string
+    sensitive   = true
+}
