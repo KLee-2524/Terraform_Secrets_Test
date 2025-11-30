@@ -43,7 +43,8 @@ module "secrets" {
     attendee_name   = each.key
     vpc_id          = aws_vpc.FAST-vpc.id
     route_table_id  = aws_route_table.FAST-route-table.id
-
+    TEST_VAR        = var.TEST_VAR
+    PRIVATE_KEY     = var.PRIVATE_KEY
 }
 
 
