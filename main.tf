@@ -35,8 +35,8 @@ locals {
 }
 
 
-module "vsftpd234-lab" {
-    source = "./modules/vsftpd234-lab"
+module "secrets" {
+    source = "./modules/secrets"
     for_each = local.attendee_index_map
 
     attendee_number = each.value
