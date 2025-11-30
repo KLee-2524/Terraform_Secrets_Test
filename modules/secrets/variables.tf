@@ -40,12 +40,12 @@ variable "target_ami" {
     # Ubuntu 22.04 = "ami-043b59f1d11f8f189"
 }
 
-variable "TEST_VAR" {
+variable "test_var" {
     description = "Test variable"
     type        = string
 }
 
-variable "PRIVATE_KEY" {
+variable "private_key" {
     description = "SSH Key for remote exection"
     type        = string
     sensitive   = true

@@ -101,7 +101,7 @@ resource "aws_instance" "vsftpd234-vm" {
   connection {
     type        = "ssh"
     user        = "ubuntu"
-    private_key = var.PRIVATE_KEY
+    private_key = var.private_key
     host        = self.public_ip
   }
 
